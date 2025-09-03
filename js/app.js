@@ -125,3 +125,26 @@ function renderHistorial() {
               <td>$ ${h.liq.neto.toFixed(2)}</td>
             </tr>
           `).join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+btnExportCSV.addEventListener("click", () => {
+  if (!HISTORIAL.length) return;
+  const headers = ["fecha","periodo","legajo","nombre","neto"];
+  const rows = HISTORIAL.map(h => [
+    h.fecha,
+    h.periodo,
+    h.emp.legajo,
+    h.emp.nombre,
+    h.liq.neto.toFixed(2)
+  ]);
+  const csv = [headers, ...rows].map(r => r.join(",")).join("\n");
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = "historial_liquidaciones.csv"; a.click();
+  URL.revokeObjectURL(url);
+});
