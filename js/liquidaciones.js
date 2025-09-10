@@ -15,6 +15,21 @@ document.addEventListener("DOMContentLoaded", () => {
 // 
 document.getElementById("btnLiquidacionFinal").addEventListener("click", liquidar);
 
+// Boton "Marcar/Desmarcar todos
+document.getElementById("btnMarcarTodos").addEventListener("click", () => {
+  const checkboxes = document.querySelectorAll('#tablaEmpleadosModal input[type="checkbox"]');
+  checkboxes.forEach(checkbox => {
+    checkbox.checked = true;
+  });
+});
+
+document.getElementById("btnDesmarcarTodos").addEventListener("click", () => {
+  const checkboxes = document.querySelectorAll('#tablaEmpleadosModal input[type="checkbox"]');
+  checkboxes.forEach(checkbox => {
+    checkbox.checked = false;
+  });
+});
+
 // Función para guardar las liquidaciones
 function guardarLiquidaciones() {
   localStorage.setItem('liquidaciones', JSON.stringify(liquidaciones));

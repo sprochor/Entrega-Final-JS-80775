@@ -50,7 +50,7 @@
         </div>
         <div class="col-md-4">
           <label for="anioLiquidacion" class="form-label">Año</label>
-          <input type="number" id="anioLiquidacion" class="form-control" placeholder="2025">
+          <input type="number" id="anioLiquidacion" class="form-control" placeholder="Tipear año...">
         </div>
         <div class="col-md-4 d-flex align-items-end">
           <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#modalSeleccionarEmpleados">Seleccionar Nomina</button>
@@ -103,6 +103,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-warning" id="btnMarcarTodos">Marcar todos</button>
+        <button type="button" class="btn btn-warning" id="btnDesmarcarTodos">Desmarcar todos</button>
         <button type="button" class="btn btn-primary" id="btnLiquidacionFinal">Generar Liquidación</button>
       </div>
     </div>

@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const savedEmployees = localStorage.getItem('empleadosNomina');
     if (savedEmployees) {
         empleados = JSON.parse(savedEmployees);
+        renderNomina();
     }
 });
 
