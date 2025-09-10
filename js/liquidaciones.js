@@ -8,19 +8,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   mostrarLiquidaciones();
   
-  // Llama a esta función para cargar los empleados en el modal al abrir la página
+  // Función para cargar los empleados al abrir la página
   renderEmpleadosParaSeleccion();
 });
 
-// Event listener para el botón "Generar Liquidación" dentro del modal
+// 
 document.getElementById("btnLiquidacionFinal").addEventListener("click", liquidar);
 
-// Función para guardar las liquidaciones en el almacenamiento local del navegador
+// Función para guardar las liquidaciones
 function guardarLiquidaciones() {
   localStorage.setItem('liquidaciones', JSON.stringify(liquidaciones));
 }
 
-// Renderiza la lista de empleados en el modal de selección
+// Renderiza la lista de empleados 
 function renderEmpleadosParaSeleccion() {
     const tablaModal = document.getElementById("tablaEmpleadosModal");
     tablaModal.innerHTML = ''; // Limpiar la tabla antes de renderizar

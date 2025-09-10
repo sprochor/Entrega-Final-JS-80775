@@ -1,11 +1,11 @@
-// Function to convert Excel serial date to YYYY-MM-DD format
+// Arregla fecha de ingreso
 function excelSerialDateToJSDate(serial) {
   const excelEpoch = new Date(Date.UTC(1899, 11, 30));
   const jsDate = new Date(excelEpoch.getTime() + serial * 24 * 60 * 60 * 1000);
   return jsDate.toISOString().slice(0, 10);
 }
 
-// Import Excel
+// Importa excel
 document.getElementById("inputExcel").addEventListener("change", function(e) {
   const file = e.target.files[0];
   const reader = new FileReader();

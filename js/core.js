@@ -1,7 +1,7 @@
-// Variable global to store the employees
+// Variable global 
 let empleados = [];
 
-// Load employees from localStorage on page load
+// Carga empleados del localStorage
 document.addEventListener("DOMContentLoaded", () => {
     const savedEmployees = localStorage.getItem('empleadosNomina');
     if (savedEmployees) {
@@ -9,12 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Function to save employees to localStorage
+// Funcion Guardar empleados
 function guardarEmpleados() {
     localStorage.setItem('empleadosNomina', JSON.stringify(empleados));
 }
 
-// Render table (This function is now only called from nomina.js)
+// Renderizar tabla
 function renderNomina(empleadosFiltrados = empleados) {
   const tbody = document.querySelector("#tablaNomina tbody");
   tbody.innerHTML = "";
@@ -38,7 +38,7 @@ function renderNomina(empleadosFiltrados = empleados) {
   });
 }
 
-// Modal Add Employee
+// Modal para agregar empleado
 const modalAgregar = new bootstrap.Modal(document.getElementById('modalAgregar'));
 document.getElementById("formAgregar").addEventListener("submit", function (e) {
   e.preventDefault();
@@ -65,7 +65,7 @@ document.getElementById("formAgregar").addEventListener("submit", function (e) {
   renderNomina();
 });
 
-// Modal Edit Employee
+// Modal para editar empleado
 const modalEditar = new bootstrap.Modal(document.getElementById('modalEditar'));
 function abrirModalEditar(index) {
   const emp = empleados[index];
@@ -96,7 +96,7 @@ document.getElementById("formEditar").addEventListener("submit", function (e) {
   renderNomina();
 });
 
-// Delete Employee
+// Eliminar empleado
 function eliminarEmpleado(index) {
   if (confirm("¿Estás seguro de que quieres eliminar a este empleado?")) {
     empleados.splice(index, 1);
@@ -105,7 +105,7 @@ function eliminarEmpleado(index) {
   }
 }
 
-// Filter logic (Now also only called from nomina.html)
+// Filtro de búsqueda
 if (document.getElementById("filtroNomina")) {
   document.getElementById("filtroNomina").addEventListener("input", function (e) {
     const searchTerm = e.target.value.toLowerCase();
